@@ -20,13 +20,13 @@ public class Executor {
 
         MaximumSubArrayService maximumSubArrayService = new MaximumSubArrayService();
         int[] inputToCheck = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
-        int result = maximumSubArrayService.findMaximumSubArray(null);
+        int result = maximumSubArrayService.findMaximumSubArray(inputToCheck);
         displayResult(inputToCheck, result);
         generateGapInConsole();
     }
 
     private static void displayResult(int[] inputToCheck, int result) {
-        if (result == 0) {
+        if (result < 1) {
             System.out.println("The maximum sum of a contiguous subarray in  the input:" + Arrays.toString(inputToCheck)
                     + " cannot be processed correctly.");
 
