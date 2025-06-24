@@ -22,6 +22,7 @@ public class Executor {
         int[] inputToCheck = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
         int result = maximumSubArrayService.findMaximumSubArray(null);
         displayResult(inputToCheck, result);
+        generateGapInConsole();
     }
 
     private static void displayResult(int[] inputToCheck, int result) {
