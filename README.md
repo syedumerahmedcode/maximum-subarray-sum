@@ -33,6 +33,30 @@ result: 6, which corresponds to the subarray [4, -1, 2, 1].
 
 The main idea behind Kadane's Algorithm is that the maximum sum of a subarray ending at a particular index can be derived from the maximum sum of the subarray ending at the previous index. This allows us to build the solution incrementally.
 
+### Initialization:
+
+We start with two variables:
+
+`maximumSoFar:` This holds the maximum sum found so far. We initialize it to the first element of the array.
+
+`maximumEndingHere:` This holds tthe maximum sum of the subarray that ends at the current index. We initialize it to the first element of the array as well.
+
+### Iterate Through the Array:
+
+For each element in the array (starting from the second element), we:
+
+- update `maximumEndingHere` using `maximumEndingHere = max(currentElement, maxEndingHere + currentElement)`. This step checks whether to start a new subarray at the current element or to continue the existing subarray. Also, we
+
+- Update `maximumSoFar` via `maximumSoFar = max(maximumSoFar, maximumEndingHere)`. This helps us in keeping track of the overall maximum sum found.
+
+### Resetting:
+
+If `maximumEndingHere` becomes negative, it indicates that the current subarray is not contributing positively to any future subarray. In this case, you can reset maxEndingHere to zero (or the next element).
+
+### Return the Result:
+
+After iterating through the array, `maximumSoFar` will contain the maximum sum of any contiguous subarray.
+
 > [It is explained more here](Please insert working link here)
 
 ## Complexity Analysis
