@@ -45,7 +45,7 @@ We start with two variables:
 
 For each element in the array (starting from the second element), we:
 
-- update `maximumEndingHere` using `maximumEndingHere = max(currentElement, maxEndingHere + currentElement)`. This step checks whether to start a new subarray at the current element or to continue the existing subarray. Also, we
+- update `maximumEndingHere` using `maximumEndingHere = max(currentElement, maximumEndingHere + currentElement)`. This step checks whether to start a new subarray at the current element or to continue the existing subarray. Also, we
 
 - Update `maximumSoFar` via `maximumSoFar = max(maximumSoFar, maximumEndingHere)`. This helps us in keeping track of the overall maximum sum found.
 
@@ -57,13 +57,68 @@ If `maximumEndingHere` becomes negative, it indicates that the current subarray 
 
 After iterating through the array, `maximumSoFar` will contain the maximum sum of any contiguous subarray.
 
+### Dry-run
+
+Let's consider an example array: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`.
+
+#### Initialization
+
+- `maximumSoFar = -2`
+- `maximumEndingHere = -2`
+
+#### Iteration
+
+Index 1 `(1)`:
+
+- `maximumEndingHere = max(1, -2 + 1) = 1`
+- `maximumSoFar = max(-2, 1) = 1`
+
+Index 2 `(-3)`:
+
+- `maximumEndingHere = max(-3, 1 - 3) = -2`
+- `maximumSoFar = max(1, -2) = 1`
+
+Index 3 `(4)`:
+
+- `maximumEndingHere = max(4, -2 + 4) = 4`
+- `maximumSoFar = max(1, 4) = 4`
+
+Index 4 `(-1)`:
+
+- `maximumEndingHere = max(-1, 4 - 1) = 3`
+- `maximumSoFar = max(4, 3) = 4`
+
+Index 5 `(2)`:
+
+- `maximumEndingHere = max(2, 3 + 2) = 5`
+- `maximumSoFar = max(4, 5) = 5`
+
+Index 6 `(1)`:
+
+- `maximumEndingHere = max(1, 5 + 1) = 6`
+- `maximumSoFar = max(5, 6) = 6`
+
+Index 7 `(-5)`:
+
+- `maximumEndingHere = max(-5, 6 - 5) = 1`
+- `maximumSoFar = max(6, 1) = 6`
+
+Index 8 `(4)`:
+
+- `maximumEndingHere = max(4, 1 + 4) = 5`
+- `maximumSoFar = max(6, 5) = 6`
+
+#### Final result
+
+After processing all elements, `maximumSoFar` is 6, which corresponds to the subarray _[4, -1, 2, 1]_.
+
 > [It is explained more here](Please insert working link here)
 
 ## Complexity Analysis
 
 ### Time Complexity
 
-**O(n)**: In the worst case scenario, it will traverse through the complete input string.
+**O(n)**: In the worst case scenario, O(n), where n is the number of elements in the array. The algorithm makes a single pass through the array.
 
 ## Edge Cases
 
